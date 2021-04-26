@@ -12,11 +12,11 @@ const App = () => {
   return (
     <div>
       <Header course={course} />
-      <Content content={[
-        { name: part1, exerciseAmount: exercises1 },
-        { name: part2, exerciseAmount: exercises2 },
-        { name: part3, exerciseAmount: exercises3 },
-      ]} />
+      <Content 
+        name1={part1} exerciseAmount1={exercises1}
+        name2={part2} exerciseAmount2={exercises2}
+        name3={part3} exerciseAmount3={exercises3}
+      />
       <Total amount={exercises1 + exercises2 + exercises3} />
     </div>
   )
@@ -25,12 +25,14 @@ const App = () => {
 const Header = props => <h1>{props.course}</h1>
 
 const Content = props => (
-  props.content.map((section, index) => 
-    <p key={index}>
-      {section.name} {section.exerciseAmount}
-    </p>
-  )
+  <div>
+    <Part name={props.name1} exerciseAmount={props.exerciseAmount1} />
+    <Part name={props.name2} exerciseAmount={props.exerciseAmount2} />
+    <Part name={props.name3} exerciseAmount={props.exerciseAmount3} />
+  </div>
 )
+
+const Part = props => <p>{props.name} {props.exerciseAmount}</p>
 
 const Total = props => (
   <p>Number of exercises {props.amount}</p>
