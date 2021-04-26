@@ -46,7 +46,7 @@ React code is split into components. They are reusable pieces of UI that can be 
 
 Components may be defined as functions or classes. In the case of function-style definition, the return value of the function is what will be rendered. When using class-style components, the method `render()` must be defined. Function-style components are preferred.
 
-In both cases, the return value of the component must be wholly wrapped in a single root element (by default, a *div* element, or an empty pair of tags if need be: `MyComponent = (<> /* ... */ </>)`).
+In both cases, the return value of the component must be wholly wrapped in a single root element (by default, a *div* element, or an empty pair of tags if need be: `MyComponent = () => (<> /* ... */ </>)`).
 
 ##### Props
 
