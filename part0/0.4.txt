@@ -1,3 +1,9 @@
+note over browser
+Save button is clicked
+and a request is sent
+through the form element
+end note
+
 browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note
 
 note over server:

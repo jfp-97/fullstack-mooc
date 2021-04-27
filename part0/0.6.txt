@@ -1,0 +1,18 @@
+note over browser
+Save button is clicked and the
+event handler for submitting
+forms set in the fetched
+JS code is triggered,
+redrawing the notes and sending
+the new one to the server
+end note
+
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+
+note over server:
+server saves the sent note
+and responds by sending
+a confirmation code
+end note
+
+server-->browser: status code 201
