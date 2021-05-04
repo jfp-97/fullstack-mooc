@@ -31,7 +31,7 @@ const App = () => {
 export default App
 ```
 
-* 
+* Define new components as modules in the `project/src/components` folder, then import them when necessary.
 
 ## JSX
 
@@ -69,6 +69,12 @@ const Welcome = (props) => {
 }
 ```
 
+#### Rendering collections
+
+When placing an array of components inside JSX, all its elements will be appended to the element above.
+
+When doing this, React necessitates adding a `key` attribute to each element of the list. However, when generating the array through a high order function, using the index as key should be avoided.
+
 ## Hooks
 
 In order to add state fo functional components, we use a React tool called *hooks*.
@@ -95,3 +101,11 @@ const Game = () => {
 Note that it's crucial to only modify the state through its declared setter, since otherwise the component won't be re-rendered.
 
 `useState` and `useEffect` should only be called on the body of a functional component, and not from within a loop or a conditional statement.
+
+## Project structure
+
+```
+my-project
+  src
+    components
+```
