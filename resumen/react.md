@@ -6,7 +6,7 @@
 * Clear `src` folder.
 * Set up `index.js` file in `src`:
 
-```jsx
+```javascript
 import React from "react"
 import ReactDOM from "react-dom"
 import App from "./App"
@@ -19,7 +19,7 @@ ReactDOM.render(
 
 * Set up `App.js` file in `src` (main entry point to the project):
 
-```jsx
+```javascript
 import React from "react"
 
 const App = () => {
@@ -30,6 +30,8 @@ const App = () => {
 
 export default App
 ```
+
+* (Optional) Add a `.env` file in the root of the project containing the line `FAST_REFRESH=false`, in order to reflect changes to the `index.js` file on the page without the need to reload it.
 
 * Define new components as modules in the `project/src/components` folder, then import them when necessary.
 
@@ -58,7 +60,7 @@ Each attribute set when using a component will be added as a field of the `props
 
 Example:
 
-```jsx
+```javascript
 ReactDOM.render(
   <Welcome name="Juan" />,
   document.getElementById('root')
@@ -77,17 +79,19 @@ When doing this, React necessitates adding a `key` attribute to each element of 
 
 ## Hooks
 
+#### State hook
+
 In order to add state fo functional components, we use a React tool called *hooks*.
 
 To use hooks in a file, we import each hook function to be used like so:
 
-```jsx
+```javascript
 import React, { useState } from 'react'
 ```
 
 Then, within a component's body, we declare state as a destructured list which consists of the state variable itself first, then its setter. This variable is set by calling the imported `useState` function, passing the initial value as its parameter.
 
-```jsx
+```javascript
 import React, { useState } from 'react'
 /* ... */
 
@@ -101,6 +105,36 @@ const Game = () => {
 Note that it's crucial to only modify the state through its declared setter, since otherwise the component won't be re-rendered.
 
 `useState` and `useEffect` should only be called on the body of a functional component, and not from within a loop or a conditional statement.
+
+#### Effect hook
+
+Effect hooks allow us to perform side-effects (like fetching data). Just like with state hooks, the function needs to be imported:
+
+```javascript
+import React, { useEffect } from 'react'
+```
+
+Effect hooks start executing immediatly after the componens render. It will take two parameters: first, the callback function that will be executed. The second parameter will specify how often the effect is run. By default, every time the component renders, the effect will be triggered. To limit the execution to only the first time the component renders, an empty array (`[]`) must be passed as the second parameter.
+
+Here's an example of an effect hook used to fetch data from the backend (only the first time the component renders):
+
+```javascript
+import React, { useState, useEffect } from 'react'
+// ...
+
+const App = () => {
+  const [notes, setNotes] = useState([])
+
+  useEffect(() => {
+    axios
+      .get('http://localhost:3001/notes')
+      .then(response => setNotes(response.data))
+  }, [])
+
+  // ...
+}
+
+```
 
 ## Project structure
 

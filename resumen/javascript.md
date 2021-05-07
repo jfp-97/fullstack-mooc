@@ -15,7 +15,7 @@ console.log(rest)          // [3, 4, 5] is printed
 
 ##### In objects passed as props/parameters
 
-```jsx
+```javascript
 ReactDOM.render(
   <Welcome name="Juan" age={20 + 3} />,
   document.getElementById('root')
@@ -28,7 +28,7 @@ const Welcome = ({ name, age }) => {
 
 ##### In objects in general (object spread)
 
-```jsx
+```javascript
 const values = {
   left: 1,
   middle: 1,
@@ -49,7 +49,7 @@ Event handlers are functions that are set up to be executed when specific events
 
 Note: a function call will usually mean that it is written with parenthesis afterwards.
 
-```jsx
+```javascript
 const Greeter = () => {
   const handleClick = () => {
     console.log('Hi!')
@@ -68,7 +68,7 @@ const Greeter = () => {
 
 Note: another valid way to set an event handler is by calling a function that returns another function.
 
-```jsx
+```javascript
 const App = () => {
   const [value, setValue] = useState(10)
   
@@ -85,4 +85,32 @@ const App = () => {
     </div>
   )
 }
+```
+
+## Promises
+
+A promise is an object representing the eventual completion or failure of an asynchronous operation. It can have three differnet states:
+
+* *Pending*: the final value (one of the following two) is not known yet.
+
+* *Fulfilled*: the operation has completed and the final value is available. It generally represents a successful operation. It's sometimes called *resolved*.
+
+* *Rejected*: an error prevented determining the final value. Generally means a failed operation.
+
+If and when we want to access the result of a promise, we have to set an event handler with the `then` method to it. It takes `request` and `response` parameters. Example:
+
+```javascript
+const promise = axios.get('http://localhost:3001/notes')
+
+promise.then((request, response) => {
+  console.log(response)
+})
+```
+
+From the `response` parameter, we can access the `data`, `statusCode` and `headers`, fields. Even when the server returns a JSON text string, axios will parse it into a JS object stored in the `data` field.
+
+Note: it's generally unnecessary to store promises into variables, so it'd be sensible to chain the `then` method to the axios method call, like this for example:
+
+```javascript
+axios.get('http://localhost:3001/notes').then(response => console.log(response.data))
 ```
