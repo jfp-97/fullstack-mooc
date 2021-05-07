@@ -45,7 +45,7 @@ In this part, scripts can be placed to make long commands readily available. The
   // ...
   "scripts": {
     // ...
-    "server": "json-server -port 3001 --watch db.json"
+    "server": "json-server --port 3001 --watch db.json"
   }
 }
 ```
@@ -71,7 +71,7 @@ json-server --port 3001 --watch file.json
 The deafault port is 3000, which React has reserved, so it's changed to 3001 instead. It's also recommended to create a script if it's going to be used frequently:
 
 ```javascript
-"server": "json-server -port 3001 --watch db.json"
+"server": "json-server --port 3001 --watch db.json"
 ```
 
 #### axios

@@ -7,7 +7,6 @@
 * Set up `index.js` file in `src`:
 
 ```javascript
-import React from "react"
 import ReactDOM from "react-dom"
 import App from "./App"
 
@@ -32,6 +31,10 @@ export default App
 ```
 
 * (Optional) Add a `.env` file in the root of the project containing the line `FAST_REFRESH=false`, in order to reflect changes to the `index.js` file on the page without the need to reload it.
+
+* Install packages:
+  * `axios`
+  * `json-server`
 
 * Define new components as modules in the `project/src/components` folder, then import them when necessary.
 
