@@ -38,6 +38,8 @@ export default App
 
 * Define new components as modules in the `project/src/components` folder, then import them when necessary.
 
+* For communication with the backend, use the axios module and add a file for each route in the `project/src/services` directory. Then implement functionality in its file.
+
 ## JSX
 
 JSX allows us to seemingly return HTML code from JavaScript functions. Under the hood, Babel is actually transpiling the return values of component functions into vanilla JS. This way, the returned "HTML code" winds up being some object created by React.
@@ -145,4 +147,5 @@ const App = () => {
 my-project
   src
     components
+    services
 ```

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+
+// The used weather data provider is: openweathermap.org
 const api_key = process.env.REACT_APP_API_KEY
 
 const App = () => {

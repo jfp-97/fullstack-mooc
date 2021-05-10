@@ -76,4 +76,55 @@ The deafault port is 3000, which React has reserved, so it's changed to 3001 ins
 
 #### axios
 
-Axios is used in the frontend to communicate with the server. Install in the 
+axios is used in the frontend to communicate with the server. Install in the project.
+
+Files using axios go in the `/services` directory, and there's one file per route, in which methods for it will be defined.
+
+Inside each file, we can define several functions for different http methods, and then export each of them. For example:
+
+```javascript
+import axios from 'axios'
+const baseUrl = 'http://localhost:3001/notes'
+
+const getAll = () => {
+  return axios
+    .get(baseUrl)
+    .then(response => response.data)
+}
+
+const create = newObject => {
+  return axios
+    .post(baseUrl, newObject)
+    .then(response => response.data)
+}
+
+const update = (id, newObject) => {
+  return axios
+    .put(`${baseUrl}/${id}`, newObject)
+    .then(response => response.data)
+}
+
+export default { 
+  getAll, 
+  create, 
+  update 
+}
+```
+
+Note: it's beter to return only the pertinent information instead of the whole http response. But even when doing this, a promise is returned.
+
+Then, we import them as an object and use these exported functions as its methods:
+
+```javascript
+import noteService from './services/notes'
+
+// ...
+
+noteService
+      .getAll()
+      .then(initialNotes => {
+        setNotes(initialNotes)
+      })
+
+// ...
+```

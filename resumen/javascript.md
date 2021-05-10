@@ -114,3 +114,41 @@ Note: it's generally unnecessary to store promises into variables, so it'd be se
 ```javascript
 axios.get('http://localhost:3001/notes').then(response => console.log(response.data))
 ```
+
+#### Errors
+
+To handle rejected promised, we can chain a `catch` method to the promise and assign a callback function to it, which will get called in said case. It takes an `error` parameter:
+
+```javascript
+axios
+  .get('http://example.com/probably_will_fail')
+  .then(response => {
+    console.log('success!')
+  })
+  .catch(error => {
+    console.log('fail')
+  })
+
+```
+
+## Short obejct initialization
+
+If we want to create an object with fields that will be both named after and set to a variable, we can omit the colon syntax. Example:
+
+```javascript
+const name = 'Juan'
+const age = 23
+
+
+// long version
+const person = {
+  name: name,
+  age: age
+}
+
+// short version
+const person = {
+  name,
+  age
+}
+```
