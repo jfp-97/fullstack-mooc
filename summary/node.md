@@ -78,7 +78,7 @@ The deafault port is 3000, which React has reserved, so it's changed to 3001 ins
 
 axios is used in the frontend to communicate with the server. Install in the project.
 
-Files using axios go in the `/services` directory, and there's one file per route, in which methods for it will be defined.
+Files using axios go in the `/services` directory, and there's one file per route, in which methods for it will be defined. Axios methods are named directly after the http methods.
 
 Inside each file, we can define several functions for different http methods, and then export each of them. For example:
 
