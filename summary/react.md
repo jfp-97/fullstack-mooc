@@ -32,13 +32,14 @@ export default App
 
 * (Optional) Add a `.env` file in the root of the project containing the line `FAST_REFRESH=false`, in order to reflect changes to the `index.js` file on the page without the need to reload it.
 
+* (Optional) Install json-server by running `npm install --save-dev json-server` and create a `"server": "json-server --port 3001 --watch db.json"` script. This package watches a `db.json` file in the root directory and serves as a faux-rest api.
+
 * Install packages:
   * `axios`
-  * `json-server`
 
 * Define new components as modules in the `project/src/components` folder, then import them when necessary.
 
-* For communication with the backend, use the axios module and add a file for each route in the `project/src/services` directory. Then implement functionality in its file.
+* For communication with the backend, use the axios module and add a file for each resource type in the `project/src/services` directory. Then implement functionality in its file.
 
 ## JSX
 

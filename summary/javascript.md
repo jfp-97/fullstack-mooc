@@ -1,8 +1,8 @@
 # JavaScript
 
-## Destructuring assignment
+## Small tricks
 
-##### In arrays
+##### Destructuring assignment in arrays
 
 ```javascript
 const t = [1, 2, 3, 4, 5]
@@ -13,7 +13,7 @@ console.log(first, second)  // 1, 2 is printed
 console.log(rest)          // [3, 4, 5] is printed
 ```
 
-##### In objects passed as props/parameters
+##### Destructuring assignment in objects passed as props/parameters
 
 ```javascript
 ReactDOM.render(
@@ -26,7 +26,7 @@ const Welcome = ({ name, age }) => {
 }
 ```
 
-##### In objects in general (object spread)
+##### Destructuring assignment in objects in general (object spread)
 
 ```javascript
 const values = {
@@ -42,6 +42,39 @@ const increasedRight = values => {
   }
 }
 ```
+
+#### Short obejct initialization
+
+If we want to create an object with fields that will be both named after and set to a variable, we can omit the colon syntax. Example:
+
+```javascript
+const name = 'Juan'
+const age = 23
+
+
+// long version
+const person = {
+  name: name,
+  age: age
+}
+
+// short version
+const person = {
+  name,
+  age
+}
+```
+
+#### Spread syntax in lists
+
+When using a function that takes an arbitrary number of parameters, it possible to want to pass it all the elements of a list. To do this, we use the spread syntax of lists. Example:
+
+```javascript
+const numbers = [5, 7, 4, 66, 321]
+
+const maxNumber = Math.max(...numbers) // returns 321
+```
+
 
 ## Event handlers
 
@@ -129,26 +162,4 @@ axios
     console.log('fail')
   })
 
-```
-
-## Short obejct initialization
-
-If we want to create an object with fields that will be both named after and set to a variable, we can omit the colon syntax. Example:
-
-```javascript
-const name = 'Juan'
-const age = 23
-
-
-// long version
-const person = {
-  name: name,
-  age: age
-}
-
-// short version
-const person = {
-  name,
-  age
-}
 ```

@@ -21,7 +21,7 @@ This in its entirety is a declaration, `h1` is the selector, the lines inside th
 
 * Type (`elementName`): affects all elements with the specified tag.
 
-* Class (`.className`): affects all the elements that have been assigned the specified name as the value of its `class` attribute. Several different elements can share a class.
+* Class (`.className`): affects all the elements that have been assigned the specified name as the value of its `class` attribute. Several different elements can share a class. Also, several classes can be assigned to an element.
 
 * ID (`#idName`): affects all the elements that have been assigned the specified name as the value of its `id` attribute. The id assigned to an element should be unique within a document.
 

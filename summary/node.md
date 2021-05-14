@@ -6,6 +6,14 @@ npm is a package manager that will allow us to define a standard structure for o
 
 #### Commands
 
+* To start a new npm project in the current directory, run:
+
+```
+npm init
+```
+
+This will guide us through a step by step configuracion of our project. For now it's enough to configure only the author name nad the license (MIT).
+
 * To install all dependencies defined for a project (for example one that has been cloned from git), run:
 
 ```
@@ -45,34 +53,21 @@ In this part, scripts can be placed to make long commands readily available. The
   // ...
   "scripts": {
     // ...
-    "server": "json-server --port 3001 --watch db.json"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   }
 }
 ```
 
-We can then lift the json-server just by running:
+We can then run the server in development mode with:
 
 ```
-npm run server
+npm run dev
 ```
 
 There are some exceptional scripts where the `run` keyword is not needed, for example `npm start`.
 
 ## Packages
-
-#### json-server
-
-This package acts as a server that offers json files. It's useful to test backend functionality while developing frontend. Install globally, then, from the directory where the file to be served is, run:
-
-```
-json-server --port 3001 --watch file.json
-```
-
-The deafault port is 3000, which React has reserved, so it's changed to 3001 instead. It's also recommended to create a script if it's going to be used frequently:
-
-```javascript
-"server": "json-server --port 3001 --watch db.json"
-```
 
 #### axios
 
